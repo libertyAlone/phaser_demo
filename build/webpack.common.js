@@ -14,6 +14,11 @@ module.exports = {
     new CleanWebpackPlugin('dist', {
       root: path.resolve(__dirname, '../')
     }),
+    
+    new webpack.DefinePlugin({
+      'typeof CANVAS_RENDERER': JSON.stringify(true),
+      'typeof WEBGL_RENDERER': JSON.stringify(true)
+    }),
     // 使用时无需import
     new webpack.ProvidePlugin({
       _: 'lodash'
